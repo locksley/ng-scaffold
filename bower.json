@@ -1,5 +1,5 @@
 {
-  "name": "wallet",
+  "name": "scaffoldApp",
   "version": "0.0.0",
   "dependencies": {
     "angular": "1.2.16",
