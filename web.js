@@ -1,6 +1,8 @@
 var gzippo = require('gzippo');
 var express = require('express');
-var morgan = require('morgan')
+var morgan = require('morgan');
+var fs = require('fs');
+
 var app = express();
 
 if (process.env.NODE_ENV === "production") {
@@ -10,14 +12,30 @@ if (process.env.NODE_ENV === "production") {
   app.use(prerender);
 }
 
+// Find the index.html in /dist
+var index;
+var files = fs.readdirSync("dist");
+for (var i = 0; i < files.length; i++) {
+  if (files[i].match(/index\..+\.html/)) {
+    index = files[i]
+    break
+  }
+};
+
 app.use(morgan("combined"));
 
-// Static Asset links
+app.get("/ping", function(req, res) {
+  res.json({
+    msg: "pong"
+  }, 200)
+})
+
+// Static Asset Server; 1 to 1 with files in /dist
 app.use(gzippo.staticGzip(__dirname + "/dist"));
 
-// 404, redirect to home, event for 404 assets
-app.get("*", function(req, res) {
-  res.sendfile(__dirname + '/dist/index.html');
+// Dynamic routes
+app.use(function(req, res) {
+  res.sendfile(__dirname + '/dist/' + index);
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 8000);
