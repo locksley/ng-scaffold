@@ -4,7 +4,7 @@ module.exports = function(opts) {
       options: {
         prefix: '/',
         module: 'scaffoldApp',
-        usemin: '/scripts/compiled.js',
+        usemin: '/scripts/scripts.js',
         htmlmin: {
           collapseBooleanAttributes: false,
           collapseWhitespace: true,
