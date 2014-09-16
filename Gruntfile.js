@@ -26,6 +26,7 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', [
     'clean:server',
     'wiredep',
+    'tags',
     'concurrent:server',
     'autoprefixer',
     'connect:livereload',
