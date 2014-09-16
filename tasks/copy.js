@@ -10,7 +10,7 @@ module.exports = function(opts) {
           '*.{ico,png,txt}',
           '.htaccess',
           '*.html',
-          'views/{,*/}*.html',
+          // 'views/{,*/}*.html',
           'images/{,*/}*.{webp}',
           'fonts/*'
         ]

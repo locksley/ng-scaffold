@@ -2,7 +2,8 @@ module.exports = function(opts) {
 	return {
 		development: {
 			options: {
-				paths: ["app/styles"]
+				paths: ["app/styles"],
+				sourceMap: false
 			},
 			files: {
 				".tmp/styles/application.css": "app/styles/application.less"

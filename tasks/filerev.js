@@ -7,7 +7,8 @@ module.exports = function(opts) {
         'dist/scripts/{,*/}*.js',
         'dist/styles/{,*/}*.css',
         'dist/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-        'dist/styles/fonts/*'
+        'dist/styles/fonts/*',
+        'dist/index.html'
       ]
     }
   }
